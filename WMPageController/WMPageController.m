@@ -357,9 +357,9 @@ static NSInteger const kWMControllerCountUndefined = -1;
 // 初始化一些参数，在init中调用
 - (void)wm_setup {
     
-    _titleSizeSelected  = WMTitleSizeSelected;
+    _titleFontSelected = [UIFont systemFontOfSize:WMTitleSizeSelected];
     _titleColorSelected = WMTitleColorSelected;
-    _titleSizeNormal    = WMTitleSizeNormal;
+    _titleFontNormal    = [UIFont systemFontOfSize:WMTitleSizeNormal];
     _titleColorNormal   = WMTitleColorNormal;
     
     _menuBGColor   = WMMenuBGColor;
@@ -698,7 +698,8 @@ static NSInteger const kWMControllerCountUndefined = -1;
 
 - (CGFloat)wm_calculateItemWithAtIndex:(NSInteger)index {
     NSString *title = [self titleAtIndex:index];
-    UIFont *titleFont = self.titleFontName ? [UIFont fontWithName:self.titleFontName size:self.titleSizeSelected] : [UIFont systemFontOfSize:self.titleSizeSelected];
+    UIFont *titleFont = self.titleFontSelected;
+//    UIFont *titleFont = self.titleFontName ? [UIFont fontWithName:self.titleFontName size:self.titleSizeSelected] : [UIFont systemFontOfSize:self.titleSizeSelected];
     NSDictionary *attrs = @{NSFontAttributeName: titleFont};
     CGFloat itemWidth = [title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:attrs context:nil].size.width;
     return itemWidth;
@@ -871,14 +872,14 @@ static NSInteger const kWMControllerCountUndefined = -1;
     return self.itemMargin;
 }
 
-- (CGFloat)menuView:(WMMenuView *)menu titleSizeForState:(WMMenuItemState)state {
+- (UIFont *)menuView:(WMMenuView *)menu titleSizeForState:(WMMenuItemState)state {
     switch (state) {
         case WMMenuItemStateSelected: {
-            return self.titleSizeSelected;
+            return self.titleFontSelected;
             break;
         }
         case WMMenuItemStateNormal: {
-            return self.titleSizeNormal;
+            return self.titleFontNormal;
             break;
         }
     }

@@ -158,18 +158,18 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     return [UIColor blackColor];
 }
 
-- (CGFloat)selectedSize {
+- (UIFont *)selectedSize {
     if ([self.delegate respondsToSelector:@selector(menuView:titleSizeForState:)]) {
         return [self.delegate menuView:self titleSizeForState:WMMenuItemStateSelected];
     }
-    return 18.0;
+    return [UIFont systemFontOfSize:18.0];
 }
 
-- (CGFloat)normalSize {
+- (UIFont *)normalSize {
     if ([self.delegate respondsToSelector:@selector(menuView:titleSizeForState:)]) {
         return [self.delegate menuView:self titleSizeForState:WMMenuItemStateNormal];
     }
-    return 15.0;
+    return [UIFont systemFontOfSize:15.0];
 }
 
 - (UIView *)badgeViewAtIndex:(NSInteger)index {
@@ -446,11 +446,12 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     for (int i = 0; i < self.titlesCount; i++) {
         CGRect frame = [self.frames[i] CGRectValue];
         WMMenuItem *item = [[WMMenuItem alloc] initWithFrame:frame];
-        if (self.fontName) {
-            item.font = [UIFont fontWithName:self.fontName size:self.selectedSize];
-        } else {
-            item.font = [UIFont systemFontOfSize:self.selectedSize];
-        }
+        item.font = self.selectedSize;
+//        if (self.fontName) {
+//            item.font = [UIFont fontWithName:self.fontName size:self.selectedSize];
+//        } else {
+//            item.font = [UIFont systemFontOfSize:self.selectedSize];
+//        }
         item.tag = (i+WMMenuItemTagOffset);
         item.delegate = self;
         item.text = [self.dataSource menuView:self titleAtIndex:i];
@@ -460,8 +461,8 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
         }
         item.userInteractionEnabled = YES;
         item.backgroundColor = [UIColor clearColor];
-        item.normalSize    = self.normalSize;
-        item.selectedSize  = self.selectedSize;
+        item.normalSize    = self.normalSize.pointSize;
+        item.selectedSize  = self.selectedSize.pointSize;
         item.normalColor   = self.normalColor;
         item.selectedColor = self.selectedColor;
         item.speedFactor   = self.speedFactor;

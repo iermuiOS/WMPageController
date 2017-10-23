@@ -217,7 +217,7 @@
 				TargetAttributes = {
 					4DD02A081D46648400BCA5F1 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 9M5YW84CE4;
+						DevelopmentTeam = 4FWB3R3FB3;
 					};
 					4DD02A211D46648400BCA5F1 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -407,6 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4FWB3R3FB3;
 				INFOPLIST_FILE = ViewFrameDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecan.ViewFrameDemo;
@@ -421,6 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4FWB3R3FB3;
 				INFOPLIST_FILE = ViewFrameDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecan.ViewFrameDemo;

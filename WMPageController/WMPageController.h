@@ -156,13 +156,13 @@ typedef NS_ENUM(NSUInteger, WMPageControllerPreloadPolicy) {
  *  选中时的标题尺寸
  *  The title size when selected (animatable)
  */
-@property (nonatomic, assign) CGFloat titleSizeSelected;
+@property (nonatomic, strong) UIFont *titleFontSelected;
 
 /**
  *  非选中时的标题尺寸
  *  The normal title size (animatable)
  */
-@property (nonatomic, assign) CGFloat titleSizeNormal;
+@property (nonatomic, assign) UIFont *titleFontNormal;
 
 /**
  *  标题选中时的颜色, 颜色是可动画的.

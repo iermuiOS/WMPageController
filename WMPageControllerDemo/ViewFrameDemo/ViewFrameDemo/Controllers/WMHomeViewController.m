@@ -24,8 +24,8 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.titleSizeNormal = 15;
-        self.titleSizeSelected = 15;
+        self.titleFontNormal = [UIFont systemFontOfSize:15];
+        self.titleFontSelected = [UIFont systemFontOfSize:15];
         self.menuViewStyle = WMMenuViewStyleLine;
         self.menuItemWidth = [UIScreen mainScreen].bounds.size.width / self.musicCategories.count;
         self.menuHeight = 50;
